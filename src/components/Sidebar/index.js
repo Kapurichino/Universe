@@ -1,4 +1,6 @@
 import React from 'react'
+import { IconContext } from 'react-icons/lib'
+import { SidebarData } from './data'
 import {
     SidebarContainer, 
     Icon, 
@@ -9,35 +11,29 @@ import {
     SideBtnWrap, 
     SidebarRoute
 } from './SidebarElements'
+import { SubMenu } from './Submenu'
 
 const Sidebar = ({isOpen, toggle}) => {
   return (
-    <SidebarContainer isOpen={isOpen} onClick={toggle}>
-      <Icon onClick={toggle}>
-        <CloseIcon/>
-      </Icon>
-      <SidebarWrapper>
-        <SidebarMenu>
-            <SidebarLink to='about' onClick={toggle}>
-                About
-            </SidebarLink>
-            <SidebarLink to='discover' onClick={toggle}>
-                Discover
-            </SidebarLink>
-            <SidebarLink to='services' onClick={toggle}>
-                Services
-            </SidebarLink>
-            <SidebarLink to='signup' onClick={toggle}>
-                Sign Up
-            </SidebarLink>
-        </SidebarMenu>
-        <SideBtnWrap>
-            <SidebarRoute to='/signin'>
-                Sign In
-            </SidebarRoute>
-        </SideBtnWrap>
-      </SidebarWrapper>
-    </SidebarContainer>
+    <>
+      <IconContext.Provider value={{color:'skyblue'}}>
+        <SidebarContainer isOpen={isOpen}>
+            <Icon onClick={toggle}>
+              <CloseIcon/>
+            </Icon>
+            <SidebarWrapper>
+            {SidebarData.map((item, index)=>{
+              return <SubMenu item={item} key={index}/>
+            })}
+            <SideBtnWrap>
+                <SidebarRoute to='/signin'>
+                    Sign In
+                </SidebarRoute>
+            </SideBtnWrap>
+          </SidebarWrapper>
+        </SidebarContainer>
+      </IconContext.Provider>
+    </>
   )
 }
 

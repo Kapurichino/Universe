@@ -29,7 +29,7 @@ const HeroSection = () => {
                     The Adventure Of The Universe
                 </HeroH1>
                 <HeroP>
-                    Search And Start Your Adventure
+                    Find Out And Start Your Story
                 </HeroP>
                 <HeroBtnWrapper>
                     <Button to="signup" 

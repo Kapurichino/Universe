@@ -3,16 +3,9 @@ import Navbar from '../components/Navbar'
 import Sidebar from '../components/Sidebar'
 import styled from "styled-components";
 import HeroSection from '../components/HeroSection';
+import PlanetSection from '../components/PlanetSection';
+import FooterSection from '../components/FooterSection';
 
-const BG = styled.div`
-  background-image:url(${({Background})=>Background});
-  background-position: center;
-  background-size: cover;
-  background-color: black;
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-`
 
 const Home = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -25,6 +18,9 @@ const Home = () => {
             <Sidebar isOpen={isOpen} toggle={toggle}/>
             <Navbar toggle={toggle}/>
             <HeroSection/>
+            <PlanetSection/>
+            {/* Position Sticky를 이용하여 행성을 지나다니는 Text 분위기 연출 */}
+            <FooterSection/>
         </>
     )
 }
